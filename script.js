@@ -52,3 +52,48 @@ const counter = (() => { // created a simple counter module
         }
     };
 })();
+
+
+
+// 3. Game Logic: tic-tac-toe Lite
+
+/*
+To practice game logic, write a function that:
+  accepts a 3x3 array representing a tic-tac-toe board
+  checks if a player has won by getting three in a row
+  returns 'X' or 'O' if there's a winner, 'Tie' if the board is full, or null if the game is still ongoing.
+    (try hardcoding some test boards and running them through your function to verify it works!)
+*/
+
+const gameBoard = (() => {
+    let board = [
+        ["","",""],
+        ["","",""],
+        ["","",""]
+    ];
+
+    const getBoard = () => board;
+
+    const updateBoard = (row, col, marker) => {
+        if (board[row][col] === ""){
+            board[row][col] = marker;
+            return board;
+        }
+    };
+
+    const checkWin = () => {
+        const board = gameBoard.getBoard();
+        const winConditions = [
+            [board[0][0],board[0][1],board[0][2]],
+            [board[1][0],board[1][1],board[1][2]],
+            [board[2][0],board[2][1],board[2][2]],
+            [board[0][0],board[1][0],board[2][0]],
+            [board[0][1],board[1][1],board[2][1]],
+            [board[0][2],board[1][2],board[2][2]],
+            [board[0][0],board[1][1],board[2][2]],
+            [board[0][2],board[1][1],board[2][0]]
+        ]
+    }
+
+    return{ getBoard, updateBoard, checkWin }
+})();
