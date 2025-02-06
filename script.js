@@ -35,20 +35,20 @@ Try creating a simple counter module:
   only the functions should have access to modify the count value
 */
 
-const counter = (() => {
-    let count = 0;
+const counter = (() => { // created a simple counter module
+    let count = 0; // count stored privately
 
     return {
-        getCount: function(){
+        getCount: function(){ // getCount
             return count;
         },
 
-        increment: function(){
+        increment: function(){ // increment
             count++;
         },
 
-        decrement: function(){
-            count -= 1;
+        decrement: function(){ // decrement
+            count --;
         }
     };
 })();
